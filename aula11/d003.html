@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Nacionalidade</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 15px;
+            background-color: lightcyan;
+        }
+        
+        p#pdado {
+            margin: 5px;
+            margin-top: 20px;
+            display: inline-flex;
+        }
+
+        #txt1 {
+            text-align: center;
+        }
+
+        #btn {
+            padding: 10px;
+            border: none;
+            background-color: green;
+            transition: 0.3s;
+            cursor: pointer;
+            margin: 15px;
+        }
+
+        #btn:hover {
+            background-color: rgb(0, 255, 0);
+        }
+
+        #limparTela {
+            padding: 10px;
+            border: none;
+            margin: 30px;
+            background-color: antiquewhite;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        #limparTela:hover {
+            background-color: rgb(255, 201, 131);
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste de Nacionalidade</h1>
+    <p id = "pdado">Insira a seguir o país em que você nasceu:</p>
+    <input type="text" name="txt1" id="txt1">
+    <br>
+    <input type="button" value="Verificar" onclick="verificar()" id="btn">
+    <div id="res"></div>
+    <input type="button" value="Limpar Tela" id="limparTela" onclick="document.location.reload(true)">
+
+    <script>
+        function verificar() {
+            var txt = window.document.querySelector('input#txt1')
+            var resp = window.document.querySelector('div#res')
+
+            var pais = (txt.value)
+            resp.innerHTML = `<p>Você nasceu em <strong>${pais}</strong></p>`
+
+            if (pais == "Brasil") {
+            resp.innerHTML += "<p>Então, você é <strong>brasileiro!</strong></p>"
+            } else {
+            resp.innerHTML += "<p>Então, você é  <strong>estrangeiro!</strong></p>"
+            }
+        }
+    </script>
+</body>
+</html>

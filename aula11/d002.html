@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio Nacionalidade</title>
+    <style>
+        body {
+            color: white;
+            font: normal 16pt Arial;
+            background-color: #000000;
+            text-align: center;
+
+
+        }
+        p {
+            color: #e0d142;
+        }
+        .p1 {
+            color: #54bd24;
+        }
+        .p2 {
+            color: #035ce2;
+        }
+        input {
+            font: normal 14pt Arial;
+            width: 120px;
+            margin-top: 20px;
+        }
+                
+    </style>
+</head>
+<body>
+    <h1>Sistema de Nacionalidade</h1>
+    Digite o seu nome: <input type="text" name="txtnome" id="txtnome"></br>
+    Digite em qual país você esta: <input type="text" name="txtpais" id="txtpais">
+    <input type="button" value="Pesquisar" onclick="consulta()">
+    <div id="resp">
+            
+    </div>
+    <script>
+        function consulta() {
+            var txtn = window.document.querySelector('input#txtnome')
+            var txtp = window.document.querySelector('input#txtpais')
+            var resp = window.document.querySelector('div#resp')
+            var nome = (txtn.value)
+            var pais = (txtp.value)
+
+
+            resp.innerHTML = `<p>Olá ${nome}, você esta em: ${pais}`
+            if (pais == 'Brasil') {
+                resp.innerHTML += `<p class="p1">Você é BRASILEIRO!`
+            } else {
+                resp.innerHTML += `<p class="p2">Você é ESTRANGEIRO!`
+                
+            }
+            resp.innerHTML += `<p class="p2">Seja bem vindo!`
+        }
+    </script>
+    <input type="button" value="Limpar tela " onclick="document.location.reload(true)">
+    
+</body>
+</html>

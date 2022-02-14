@@ -1,151 +1,74 @@
 <!DOCTYPE html>
-
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Nacionalidade</title>
+    <style>
 
-  <meta charset="UTF-8">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: lightcyan;
+        }
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        h1 {
+            margin: 10px;
+        }
 
-  <title>Identificadoor de Nacionalidade</title>
+        p {
+            display: inline;
+        }
 
-  <style>
+        #txt1 {
+            margin: 10px;
+        }
 
-    body {
+        #btn {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.315);
+            background-color: green;
+            transition: 0.3s;
+            cursor: pointer;
+        }
 
-      background-color: pink;
+        #btn:hover {
+            background-color: rgb(0, 255, 0);
+        }
 
-      color:  white;
-
-      font: normal 15px Roboto;
-
-    }
-
-
-
-    input#txtp {
-
-      width: 250px;
-
-      height: auto;
-
-      color: white;
-
-      font: normal 15px Roboto;
-
-      background-color: palevioletred;
-
-      text-align: center;
-
-      border-radius: 2px;
-
-      border: none;
-
-    }
-
-
-
-    input#verificar {
-
-      width: 150px;
-
-      height: 150;
-
-      color: white;
-
-      font: normal 15px Roboto;
-
-      background-color: palevioletred;
-
-      text-align: center;
-
-      border-radius: 2px;
-
-      border: none;
-
-      margin-top: 10px;
-
-    }
-
-
-
-    div {
-
-      margin-top: 20px;
-
-      text-align: center;
-
-    }
-
-
-
-    #corpo {
-
-      width: 1000px;
-
-      height: auto;
-
-      margin: 0 auto;
-
-    }
-
-
-
-  </style>
-
+        #res {
+            margin: 10px;
+        }
+    </style>
+    
 </head>
-
 <body>
+    <h1>Teste de Nacionalidade</h1>
+    <p>Insira a seguir o país em que você nasceu: </p>
+    <input type="text" name="txt1" id="txt1">
+    <br>
+    <input type="button" value="Verificar" id="btn" onclick="verificar()">
+    <div id="res"></div>
 
-  <div id="corpo">
+    <script>
+        function verificar() {
+            var txtp = window.document.querySelector('input#txt1')
+            var resp = window.document.querySelector('div#res')
 
-    <h1>Identificador de Nacionalidade</h1>
-
-    <input type="text" value="Digite aqui o seu país." id="txtp">
-
-    <input type="button" value="VERFICAR" id="verificar" onclick="verificar()">
-
-    <div id="res">
-
-
-
-    </div>
-
-  </div>
-
-
-
-  <script>
-
-    function verificar() {
-
-      var país = document.querySelector('input#txtp')
-
-      var res = document.querySelector('div#res')
-
-      var nacionalidade = String(país.value)
-
-
-
-      res.innerHTML += `<p>Atualmente você vive no ${nacionalidade}.</p>`
-
-      if (nacionalidade == 'Brasil') {
-
-        res.innerHTML += `<p>No entanto você é brasileiro.</p>`
-
-      } else {
-
-        res.innerHTML += `<p>No entando você é estrangeiro.</p>`
-
-      }
-
+            var pais = (txtp.value)
+            if (pais == "Brasil", "brasil", "br") {
+            res.innerHTML = `<br><p>Você nasceu em ${pais},  então você é <strong>brasileiro!</strong></p>`
+        }   else {
+            res.innerHTML = `<br><p>Você nasceu em ${pais},  então você é <strong>estrangeiro!</strong></p>`
+        }
     }
-
-  </script>
-
-
-
+    </script>
 </body>
-
 </html>
