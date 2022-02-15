@@ -20,7 +20,7 @@ switch (diaSem) {
     case 1:
         console.log('Segunda')
         break
-    case 2:
+    case 2: 
         console.log('Terça')
         break
     case 3:
