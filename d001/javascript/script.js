@@ -1,22 +1,44 @@
-function carregar() {
-    var msg = window.document.getElementById('msg')
-    var img = window.document.getElementById('imagem')
+function verificar() {
     var data = new Date()
-    var hora = data.getHours()
-    var minuto = data.getMinutes()
-
-    if (hora >= 0 && hora < 6) {
-        msg.innerHTML = `Boa madrugada! Agora são ${hora} horas e ${minuto} minutos.`
-        img.src = 'imagens/foto-madrugada.png'
-    } else if (hora >= 6 && hora < 12) {
-        msg.innerHTML = `Bom dia! Agora são ${hora} horas e ${minuto} minutos.`
-        img.src = 'imagens/foto-manha.png'
-    } else if (hora >= 12 && hora < 18) {
-        msg.innerHTML = `Boa tarde! Agora são ${hora} horas e ${minuto} minutos.`
-        img.src = 'imagens/foto-tarde.png'
+    var ano = data.getFullYear()
+    var fAno = window.document.getElementById('txtano')
+    var res = window.document.getElementById('res')
+    if (fAno.value.length == 0 || Number(fAno.value) > ano) {
+        window.alert('[ERRO] Verifique os dados e tente novamente!')
     } else {
-        msg.innerHTML = `Bom noite! Agora são ${hora} horas e ${minuto} minutos.`
-        img.src = 'imagens/foto-noite.png'
+        var fsex = document.getElementsByName('radsex')
+        var idade = ano - Number(fAno.value)
+        var genero = ''
+        var img = document.createElement('img')
+        img.setAttribute('id', 'foto')
+        if (fsex[0].checked) {
+            genero = 'Homem'
+            if (idade >= 0 && idade < 4) {
+                // Bebê
+            } else if (idade >= 4 && idade < 14) {
+                // Criança
+            } else if (idade >= 14 && idade < 18) {
+                // Jovem
+            } else if (idade >= 18 && idade < 60) {
+                // Adulto
+            } else {
+                // Idoso
+            }
+        } else if (fsex[1].checked) {
+            genero = 'Mulher'
+            if (idade >= 0 && idade < 4) {
+                // Bebê
+            } else if (idade >= 4 && idade < 14) {
+                // Criança
+            } else if (idade >= 14 && idade < 18) {
+                // Jovem
+            } else if (idade >= 18 && idade < 60) {
+                // Adulto
+            } else {
+                // Idoso
+            }
+        }
+        res.innerHTML = `Detectamos ${genero} com ${idade} anos.`
     }
-
 }
+
